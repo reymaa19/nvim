@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-    theme = "chadracula",
+    theme = "gruvbox",
     transparency = false,
 }
 
@@ -15,7 +15,7 @@ M.ui = {
         icons = true,
         icons_left = false,
         lspkind_text = false,
-        style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+        style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
         format_colors = {
             tailwind = true,
         },

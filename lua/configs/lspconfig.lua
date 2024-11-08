@@ -3,26 +3,27 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
-local prettier = require("formatters.prettier")
 
 -- list of all servers configured.
 lspconfig.servers = {
-    "html",
-    "cssls",
-    "emmet_ls",
     "ts_ls",
-    "diagnosticls",
-    "pylsp",
-    "tailwindcss"
+    "cssls",
+    "lua_ls",
+    "eslint",
+    "pyright",
+    "emmet_ls",
+    "tailwindcss",
 }
 
 -- lsps with default config
 local default_servers = {
-    "html",
+    -- "ts_ls",
     "cssls",
+    "lua_ls",
+    "eslint",
+    "pyright",
     "emmet_ls",
-    "ts_ls",
-    "pylsp",
+    "tailwindcss",
 }
 
 -- lsps with default config
@@ -34,30 +35,12 @@ for _, lsp in ipairs(default_servers) do
     })
 end
 
-lspconfig.diagnosticls.setup({
-    on_attach = on_attach,
+lspconfig.ts_ls.setup({
     on_init = on_init,
+    on_attach = function(client, bufnr)
+        if client.name == "ts_ls" then
+            client.server_capabilities.diagnosticProvider = false
+        end
+    end,
     capabilities = capabilities,
-
-    ["javascript"] = {
-        formatter = prettier,
-    },
-
-    ["typescript"] = {
-        formatter = prettier,
-    },
-
-    ["tsx"] = {
-        formatter = prettier,
-    },
-
-    ["javascriptreact"] = {
-        formatter = prettier,
-    },
-
-    ["json"] = {
-        formatter = prettier,
-    },
 })
-
-lspconfig.tailwindcss.setup({})
