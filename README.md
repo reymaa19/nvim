@@ -1,26 +1,26 @@
-Custom [Neovim](https://neovim.io/) configuration using [NvChad](https://github.com/NvChad/NvChad?tab=readme-ov-file) as a base.
+Custom [Neovim](https://neovim.io/) configuration using [NvChad](https://nvchad.com/) as a base.
 
-Mason Installs:
+LSP:
+- tailwindcss-language-server
+- typescript-language-server
 - lua-language-server
-- css-lsp
-- diagnostic-languageserver
 - emmet-ls
+- pyright
+- css-lsp
+- eslint
+
+Linter:
+- flake8
 - hadolint
 - jsonlint
-- html-lsp
-- js-debug-adapter
-- prettier
-- python-lsp-server
-- stylua
-- typescript-language-server
 - vale
 
+Formatter:
+- black
+- stylua
+- prettier
+
 prettier setup:
-```
-home
-└───user
-    │   .prettierrc.json
-```
 ```json
 {
     "printWidth": 120,
@@ -29,7 +29,6 @@ home
     "semi": true,
     "singleQuote": false,
     "bracketSpacing": true,
-    "jsxBracketSameLine": true,
     "arrowParens": "always"
 }
 ```
@@ -39,11 +38,21 @@ vale setup:
 vale
 │   .vale.ini
 └───styles
-    └───Microsoft
+    └───Google
 ```
 ```
 StylesPath = ./styles
 MinAlertLevel = suggestion
 [*]
-BasedOnStyles = Vale, Microsoft
+BasedOnStyles = Vale, Google
+```
+
+Commands:
+```
+:Lazy
+:Lazy sync
+:Mason
+:TSInstallInfo
+:LspInfo
+:Copilot
 ```
