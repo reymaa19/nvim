@@ -10,7 +10,7 @@ lspconfig.servers = {
     "cssls",
     "lua_ls",
     "eslint",
-    "pyright",
+    "pylsp",
     "emmet_ls",
     "tailwindcss",
 }
@@ -21,7 +21,7 @@ local default_servers = {
     "cssls",
     "lua_ls",
     "eslint",
-    "pyright",
+    "pylsp",
     "emmet_ls",
     "tailwindcss",
 }

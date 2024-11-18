@@ -11,7 +11,7 @@ local options = {
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
         json = { "prettier" },
-        python = { "black" },
+        jsonc = { "prettier" },
     },
 }
 

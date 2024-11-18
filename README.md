@@ -1,31 +1,30 @@
 Custom [Neovim](https://neovim.io/) configuration using [NvChad](https://nvchad.com/) as a base.
 
 LSP:
+- css-lsp
+- emmet-ls
+- eslint
+- lua-language-server
+- pylsp
 - tailwindcss-language-server
 - typescript-language-server
-- lua-language-server
-- emmet-ls
-- pyright
-- css-lsp
-- eslint
 
 Linter:
-- flake8
 - hadolint
 - jsonlint
+- tflint
 - vale
 
 Formatter:
-- black
-- stylua
 - prettier
+- stylua
 
 prettier setup:
 ```json
 {
     "printWidth": 120,
     "tabWidth": 4,
-    "useTabs": true,
+    "useTabs": false,
     "semi": true,
     "singleQuote": false,
     "bracketSpacing": true,
@@ -50,9 +49,9 @@ BasedOnStyles = Vale, Google
 Commands:
 ```
 :Lazy
-:Lazy sync
 :Mason
-:TSInstallInfo
-:LspInfo
+:TS
+:Lsp
+:Conform
 :Copilot
 ```
