@@ -3,6 +3,7 @@ require("nvchad.mappings")
 -- add yours here
 
 local map = vim.keymap.set
+local api = require("nvim-tree.api")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -14,3 +15,11 @@ map("n", "<leader>pp", ":PxToRemLine<CR>", { noremap = true })
 map("n", "<leader>tt", function()
     require("base46").toggle_transparency()
 end, { desc = "Toggle transparency" })
+
+-- Change root directory to node
+map("n", "<C-CR>", api.tree.change_root_to_node, {
+    desc = "CD",
+    noremap = true,
+    silent = true,
+    nowait = true,
+})

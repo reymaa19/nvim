@@ -15,6 +15,7 @@ local options = {
         "css",
         "scss",
         "python",
+        "dockerfile",
     },
 
     highlight = {

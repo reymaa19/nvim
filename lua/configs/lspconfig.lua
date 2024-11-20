@@ -36,11 +36,9 @@ for _, lsp in ipairs(default_servers) do
 end
 
 lspconfig.ts_ls.setup({
-    on_init = on_init,
     on_attach = function(client, bufnr)
-        if client.name == "ts_ls" then
-            client.server_capabilities.diagnosticProvider = false
-        end
+        client.handlers["textDocument/publishDiagnostics"] = function() end
     end,
+    on_init = on_init,
     capabilities = capabilities,
 })
