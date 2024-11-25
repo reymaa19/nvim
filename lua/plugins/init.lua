@@ -1,9 +1,27 @@
 return {
+    -- Autocomplete got annoying when I was trying to learn
+    -- {
+    --     "github/copilot.vim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    -- },
+
     {
-        "github/copilot.vim",
-        event = { "BufReadPre", "BufNewFile" },
+        "CopilotC-Nvim/CopilotChat.nvim",
+        opts = { model = "o1-preview" },
+        event = "VeryLazy",
+        keys = {
+            { "<leader>cca", ":CopilotChat ", desc = " CopilotChat - Ask CopilotChat" },
+            { "<leader>cct", ":CopilotChatToggle<CR>", desc = " CopilotChat - Toggle CopilotChat" },
+        },
         config = function()
-            vim.cmd("Copilot")
+            require("CopilotChat").setup({
+                mappings = {
+                    reset = { -- Kept accidentally reseting the chat <C-l>
+                        normal = "",
+                        insert = "",
+                    },
+                },
+            })
         end,
     },
 

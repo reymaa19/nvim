@@ -1,25 +1,22 @@
 require("nvchad.mappings")
 
--- add yours here
-
 local map = vim.keymap.set
-local api = require("nvim-tree.api")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
--- px to rem
+-- px to rem (used for BrainStation Projects)
 map("n", "<leader>pp", ":PxToRemLine<CR>", { noremap = true })
 
--- toggle transparency
-map("n", "<leader>tt", function()
-    require("base46").toggle_transparency()
-end, { desc = "Toggle transparency" })
+-- System clipboard paste mappings
+map("n", "p", '"+p', { desc = "Paste from system clipboard" })
+map("n", "P", '"+P', { desc = "Paste before from system clipboard" })
 
--- Change root directory to node
-map("n", "<C-CR>", api.tree.change_root_to_node, {
-    desc = "CD",
-    noremap = true,
-    silent = true,
-    nowait = true,
-})
+-- Use black hole register (_) to void the deleted text in visual mode
+map("v", "p", '"_d"+p', { desc = "Paste from system clipboard" })
+map("v", "P", '"_d"+P', { desc = "Paste before from system clipboard" })
+
+-- toggle transparency
+-- map("n", "<leader>tt", function()
+--     require("base46").toggle_transparency()
+-- end, { desc = "Toggle transparency" })
