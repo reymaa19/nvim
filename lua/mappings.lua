@@ -10,11 +10,14 @@ map("n", "<leader>pp", ":PxToRemLine<CR>", { noremap = true })
 
 -- System clipboard paste mappings
 map("n", "p", '"+p', { desc = "Paste from system clipboard" })
-map("n", "P", '"+P', { desc = "Paste before from system clipboard" })
+-- map("n", "P", '"+P', { desc = "Paste before from system clipboard" })
 
 -- Use black hole register (_) to void the deleted text in visual mode
 map("v", "p", '"_d"+p', { desc = "Paste from system clipboard" })
-map("v", "P", '"_d"+P', { desc = "Paste before from system clipboard" })
+-- map("v", "P", '"_d"+P', { desc = "Paste before from system clipboard" })
+
+-- Go to type definition
+map("n", "gD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
 
 -- toggle transparency
 -- map("n", "<leader>tt", function()

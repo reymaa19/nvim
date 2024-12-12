@@ -17,7 +17,7 @@ lspconfig.servers = {
 
 -- lsps with default config
 local default_servers = {
-    -- "ts_ls",
+    "ts_ls",
     "cssls",
     "lua_ls",
     "eslint",
@@ -35,10 +35,10 @@ for _, lsp in ipairs(default_servers) do
     })
 end
 
-lspconfig.ts_ls.setup({
-    on_attach = function(client, bufnr)
-        client.handlers["textDocument/publishDiagnostics"] = function() end
-    end,
-    on_init = on_init,
-    capabilities = capabilities,
-})
+-- lspconfig.ts_ls.setup({
+--     on_attach = function(client, bufnr)
+--         client.handlers["textDocument/publishDiagnostics"] = function() end
+--     end,
+--     on_init = on_init,
+--     capabilities = capabilities,
+-- })

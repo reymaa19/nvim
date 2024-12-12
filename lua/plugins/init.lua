@@ -7,11 +7,12 @@ return {
 
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        opts = { model = "o1-preview" },
+        branch = "main",
         event = "VeryLazy",
         keys = {
             { "<leader>cca", ":CopilotChat ", desc = " CopilotChat - Ask CopilotChat" },
             { "<leader>cct", ":CopilotChatToggle<CR>", desc = " CopilotChat - Toggle CopilotChat" },
+            { "<leader>ccr", ":CopilotChatReset<CR>", desc = " CopilotChat - Reset CopilotChat" },
         },
         config = function()
             require("CopilotChat").setup({
